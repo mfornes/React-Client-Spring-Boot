@@ -1,11 +1,11 @@
 FROM node as builder
-WORKDIR /build
+WORKDIR /app
 COPY . .
 RUN npm install && npm run build
 
 FROM nginx
-WORKDIR /build
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /build/build /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/build .
 EXPOSE 80
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
