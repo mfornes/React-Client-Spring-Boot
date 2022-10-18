@@ -16,9 +16,8 @@ const AddService = () => {
 
     const saveService = async () => {
         let data = {
-            uid: uid,
             status: status,
-            vendor: vendor         
+            vendor: vendor
         };
         try {
             let response = await DeviceService.create(gatewayId, data);
@@ -39,7 +38,6 @@ const AddService = () => {
         setSubmitted(false)
     }
 
-    const onChangeUid = (e) => setUID(e.target.value)
     const onChangeStatus = (e) => setStatus(e.target.value)
     const onChangeVendor = (e) => setVendor(e.target.value)
 
@@ -55,30 +53,7 @@ const AddService = () => {
             ) : (
                 <div>
                     <div className="form-group">
-                        <label htmlFor="uid">UID</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="uid"
-                            required
-                            value={uid}
-                            onChange={onChangeUid}
-                            name="uid"
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        {/* <label htmlFor="status">Status</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="status"
-                            required
-                            value={status}
-                            onChange={onChangeStatus}
-                            name="status"
-                        /> */}
-                        <select className="form-select"  value={status} onChange={onChangeStatus}>
+                        <select className="form-select" value={status} onChange={onChangeStatus}>
                             <option value="OFFLINE">OFFLINE</option>
                             <option value="ONLINE">ONLINE</option>
                         </select>
@@ -95,7 +70,7 @@ const AddService = () => {
                             onChange={onChangeVendor}
                             name="vendor"
                         />
-                    </div>        
+                    </div>
                     <button onClick={saveService} className="btn btn-success">
                         Submit
                     </button>

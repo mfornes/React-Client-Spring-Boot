@@ -51,12 +51,6 @@ const Device = () => {
             // setLoading(false);
         }
     }
-    const onChangeUID = (e) => {
-        setCurrentDevice({
-            ...currentDevice,
-            uui: e.target.value
-        });
-    }
 
     const onChangeVendor = (e) => {
         setCurrentDevice({
@@ -86,15 +80,14 @@ const Device = () => {
                             <label htmlFor="uid">UID</label>
                             <input
                                 type="text"
+                                disabled
                                 className="form-control"
                                 id="uid"
                                 value={currentDevice.uid}
-                                onChange={onChangeUID}
-
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="vendor">UUID</label>
+                            <label htmlFor="vendor">Vendor</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -109,31 +102,7 @@ const Device = () => {
                                 <option value="ONLINE">ONLINE</option>
                             </select>
                         </div>
-
-                        {/* <div className="form-group">
-                            <label>
-                                <strong>Status:</strong>
-                            </label>
-                            {currentTutorial.published ? "Published" : "Pending"}
-                        </div> */}
                     </form>
-
-                    {/* {currentTutorial.published ? (
-                        <button
-                            className="badge badge-primary mr-2"
-                            onClick={() => this.updatePublished(false)}
-                        >
-                            UnPublish
-                        </button>
-                    ) : (
-                        <button
-                            className="badge badge-primary mr-2"
-                            onClick={() => this.updatePublished(true)}
-                        >
-                            Publish
-                        </button>
-                    )} */}
-
                     <button
                         className="btn btn-danger mr-2"
                         onClick={deleteDevice}
@@ -143,7 +112,7 @@ const Device = () => {
 
                     <button
                         type="submit"
-                        className="btn btn-success"
+                        className="btn btn-success mr-2"
                         onClick={updateDevice}
                     >
                         Update

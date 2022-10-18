@@ -11,7 +11,6 @@ const AddGateway = () => {
 
     const saveGateway = async () => {
         let data = {
-            uuid: uuid,
             gatewayName: gatewayName,
             addressIPv4: addressIPv4
         };
@@ -34,11 +33,10 @@ const AddGateway = () => {
         setAddressIPv4("")
         setSubmitted(false)
     }
-
-    const onChangeUuid = (e) => setUUID(e.target.value)
+    
     const onChangeGatewayName = (e) => setGatewayName(e.target.value)
     const onChangeAddressIPv4 = (e) => setAddressIPv4(e.target.value)
-    
+
     return (
         <div className="submit-form">
             {submitted ? (
@@ -50,19 +48,6 @@ const AddGateway = () => {
                 </div>
             ) : (
                 <div>
-                    <div className="form-group">
-                        <label htmlFor="uuid">UUID</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="uuid"
-                            required
-                            value={uuid}
-                            onChange={onChangeUuid}
-                            name="uuid"
-                        />
-                    </div>
-
                     <div className="form-group">
                         <label htmlFor="gatewayName">Gateway Name</label>
                         <input

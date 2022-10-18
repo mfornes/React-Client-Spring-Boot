@@ -51,14 +51,8 @@ const Gateway = () => {
             // setLoading(false);
         }
     }
-    const onChangeUUID = (e) => {
-        setCurrentGateway({
-            ...currentGateway,
-            uuid: e.target.value
-        });
-    }
 
-    const onChangeGatewayName = (e) => {      
+    const onChangeGatewayName = (e) => {
         setCurrentGateway({
             ...currentGateway,
             gatewayName: e.target.value
@@ -90,17 +84,16 @@ const Gateway = () => {
                                 id="gatewayName"
                                 value={currentGateway.gatewayName}
                                 onChange={onChangeGatewayName}
-                            // onBlur={() => onChangeGatewayName(currentGateway.gatewayName)}
                             />
                         </div>
                         <div className="form-group">
                             <label htmlFor="uuid">UUID</label>
                             <input
+                                disabled
                                 type="text"
                                 className="form-control"
                                 id="uuid"
                                 value={currentGateway.uuid}
-                                onChange={onChangeUUID}
                             />
                         </div>
                         <div className="form-group">
@@ -114,29 +107,7 @@ const Gateway = () => {
                             />
                         </div>
 
-                        {/* <div className="form-group">
-                            <label>
-                                <strong>Status:</strong>
-                            </label>
-                            {currentTutorial.published ? "Published" : "Pending"}
-                        </div> */}
                     </form>
-
-                    {/* {currentTutorial.published ? (
-                        <button
-                            className="badge badge-primary mr-2"
-                            onClick={() => this.updatePublished(false)}
-                        >
-                            UnPublish
-                        </button>
-                    ) : (
-                        <button
-                            className="badge badge-primary mr-2"
-                            onClick={() => this.updatePublished(true)}
-                        >
-                            Publish
-                        </button>
-                    )} */}
 
                     <button
                         className="btn btn-danger mr-2"
